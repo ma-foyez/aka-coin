@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+@import './variables/variables';
+@import './utilities/utilities';
+
+.responsive-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-menu.responsive {
+    overflow-y: hidden;
+    transition: 0.5s all;
+    height: 0;
+    ul {
+        li {
+            a {
+                width: 95%;
+                display: block;
+            }
+        }
+    }
+}
+
+.responsive.show {
+    display: block;
+    height: 300px;
+    transition: 0.5s all;
+  }
