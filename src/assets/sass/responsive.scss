@@ -3,28 +3,63 @@
 @import './variables/variables';
 @import './utilities/utilities';
 
-.responsive-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.navbar-menu.responsive {
-    overflow-y: hidden;
-    transition: 0.5s all;
-    height: 0;
-    ul {
-        li {
-            a {
-                width: 95%;
-                display: block;
+@media only screen and (max-width: 767px) {
+
+    html, body{
+        font-size: 10px;
+    }
+
+    /********************************************
+                Navbar SCSS
+*********************************************/
+    .responsive-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar-menu.responsive {
+        overflow-y: hidden;
+        transition: 0.5s all;
+        height: 0;
+
+        ul {
+            li {
+                a {
+                    width: 95%;
+                    display: block;
+                }
             }
         }
     }
-}
 
-.responsive.show {
-    display: block;
-    height: 300px;
-    transition: 0.5s all;
-  }
+    .responsive.show {
+        display: block;
+        height: 300px;
+        transition: 0.5s all;
+    }
+
+    /********************************************
+                Top Banner SCSS
+*********************************************/
+
+    .top-banner-inner {
+        flex-direction: column-reverse;
+        padding: 1rem 0.5rem;
+
+        .top-banner-details {
+            margin-top: 30px;
+            .top-banner-heading{
+                line-height: 60px;
+            }
+        }
+        .top-banner-img{
+            text-align: center;
+            img{
+                max-height: 300px;
+            }
+        }
+    }
+
+}
