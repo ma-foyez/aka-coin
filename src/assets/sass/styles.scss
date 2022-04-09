@@ -290,3 +290,34 @@ footer {
         }
     }
 }
+
+
+/********************************************
+                Guideline Section SCSS
+*********************************************/
+.guideline-inner{
+    padding-top: 4rem;
+    display: flex;
+    align-items: center;
+    .guideline-img{
+        background-color: $color-yellow;
+        border-radius: 50%;
+        img{
+            width: 160px;
+        }
+    }
+    .details{
+        margin-left: 30px;
+        .details-title{
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 30px;
+        }
+        .wallet-details{
+            font-size: 1rem;
+            line-height: 28px;
+            color: $color-gray;
+            font-weight: 500;
+        }
+    }
+}
