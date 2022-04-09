@@ -34,7 +34,7 @@ const Wallets = () => {
                     </div>
                 </div>
 
-                
+
                 <div className="wallet-card wallet-safe">
                     <h4 className="wallet-title">AkaWallet</h4>
                     <p className="wallet-details">
