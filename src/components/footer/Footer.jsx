@@ -43,7 +43,7 @@ const Footer = () => {
             <div className="container">
                 <div className="row pt-5">
                     <div className="col-md-3 col-sm-6 col-6">
-                        <div className="brand-logo responsive-nav">
+                        <div className="brand-logo">
                             <Link to="/">
                                 <img src={logo} alt="Space brand logo" />
                             </Link>
@@ -78,33 +78,27 @@ const Footer = () => {
                     <div className="col-md-2 col-sm-6 col-6">
                         <div className="footer-inner">
                             <h5 className="title">Pages</h5>
-                            <ul>
-                                <li> <Link to="/">Network Statistic</Link> </li>
-                                <li> <Link to="/">What is AkaCoin</Link> </li>
-                                <li> <Link to="/">Wallets</Link> </li>
-                                <li> <Link to="/">Quick Start Guide</Link> </li>
-                            </ul>
+                            <Link to="/">Network Statistic</Link>
+                            <Link to="/">What is AkaCoin</Link>
+                            <Link to="/">Wallets</Link>
+                            <Link to="/">Quick Start Guide</Link>
                         </div>
                     </div>
                     <div className="col-md-2 col-sm-6 col-6">
                         <div className="footer-inner">
                             <h5 className="title">Learn</h5>
-                            <ul>
-                                <li> <Link to="/">Blog</Link> </li>
-                                <li> <Link to="/">Video</Link> </li>
-                                <li> <Link to="/">Podcast</Link> </li>
-                                <li> <Link to="/">Network states</Link> </li>
-                            </ul>
+                            <Link to="/">Blog</Link>
+                            <Link to="/">Video</Link>
+                            <Link to="/">Podcast</Link>
+                            <Link to="/">Network states</Link>
                         </div>
                     </div>
                     <div className="col-md-2 col-sm-6 col-6">
                         <div className="footer-inner">
                             <h5 className="title">Support</h5>
-                            <ul>
-                                <li> <Link to="/">Customers Service</Link> </li>
-                                <li> <Link to="/">FAQ</Link> </li>
-                                <li> <Link to="/">Community</Link> </li>
-                            </ul>
+                            <Link to="/">Customers Service</Link>
+                            <Link to="/">FAQ</Link>
+                            <Link to="/">Community</Link>
                         </div>
                     </div>
                     <div className="col-md-3 col-sm-6 col-6">
@@ -118,6 +112,10 @@ const Footer = () => {
                             <Link to="/">Cookie policy</Link>
                         </div>
                     </div>
+                </div>
+                {/* footer copy right  */}
+                <div className="footer-copyright">
+                    <p className='copy-right-text'> &copy; {new Date().getFullYear()} AKA.COIN. All rights reserved</p>
                 </div>
             </div>
         </footer>

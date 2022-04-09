@@ -9,7 +9,9 @@ body {
     margin: 0;
     font-size: 16px;
     font-family: 'Lato', sans-serif;
+    font-weight: 400;
     background-color: $main-bg;
+    color: $color-dark;
 }
 
 /********************************************
@@ -53,6 +55,8 @@ header {
                 Footer SCSS
 *********************************************/
 footer {
+    text-align: left;
+
     .footer-top {
         background-color: $color-blue;
         color: $color-white;
@@ -77,11 +81,92 @@ footer {
                 margin: 10px 0px;
             }
         }
+
+        .footer-social {
+            ul {
+                li {
+                    display: inline-block;
+                    margin: 0 0.5rem;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+
+                    svg {
+                        height: 2rem;
+                        width: 2rem;
+                    }
+                }
+            }
+        }
     }
-    .footer-social{
-        ul li{
-            list-style: none;
-            text-align: left;
+
+    .footer-inner {
+        margin-left: 1rem;
+
+        .title {
+            font-weight: 700;
+            line-height: 32px;
+        }
+
+        a {
+            display: block;
+            margin: 1rem 0;
+        }
+    }
+
+    .footer-copyright {
+        padding: 1rem;
+
+        p {
+            text-align: center;
+            color: $color-gray;
+            font-weight: 600;
+            line-height: 32px;
+        }
+    }
+}
+
+/********************************************
+                Top Banner SCSS
+*********************************************/
+.top-banner{
+    background-color: $header-bg;
+    .top-banner-details{
+        p{
+            font-size: 1.37rem;
+            line-height: 26px;
+            font-weight: 600;
+            .company-name-blue{
+                color: $color-deep-blue;
+            }
+            .company-name-yellow{
+                color: $color-yellow;
+            }
+        }
+        .top-banner-heading{
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 100px;
+        }
+        .top-banner-details{
+           color: $color-gray;
+           font-weight: 400;
+           line-height: 28px;
+        }
+        .top-banner-btn-group{
+            .started-btn{
+                background-color: $color-deep-blue;
+                color: $color-white;
+                border-color: $color-deep-blue;
+            }
+            .github-btn{
+                svg{
+                    height: 28px;
+                    width: 28px;
+                    margin-right: 10px;
+                }
+            }
         }
     }
 }

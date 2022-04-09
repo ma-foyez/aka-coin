@@ -4,7 +4,7 @@ ul {
 
 a {
     text-decoration: none;
-    color: $color-dark1;
+    color: $color-dark;
     transition: 0.5s all;
 }
 
@@ -15,4 +15,17 @@ a:hover {
 svg {
     height: 30px;
     cursor: pointer;
+}
+
+.custom-btn{
+    border: 0;
+    outline: 0;
+    border: 1px solid $color-white;
+    color: $color-dark;
+    padding: 1rem 3.5rem;
+    background-color: $color-white;
+    border-radius: 50px;
+    margin: 15px;
+    font-weight: 600;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
 }

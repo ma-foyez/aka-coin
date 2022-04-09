@@ -1,15 +1,13 @@
 import React from 'react';
+import TopBanner from '../components/topBanner/TopBanner';
 import MainLayout from '../layouts/MainLayout';
 
 const HomePage = () => {
-    return (
-        <MainLayout title="Home">
-          <h2>Comming Soon</h2>
-          <h2>Comming</h2>
-      
-          <h2>Comming</h2>
-        </MainLayout>
-    );
+  return (
+    <MainLayout title="Home">
+      <TopBanner />
+    </MainLayout>
+  );
 };
 
 export default HomePage;
