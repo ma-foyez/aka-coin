@@ -28,6 +28,7 @@ header {
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 99999;
 
     .navbar-menu {
         ul {
@@ -130,42 +131,161 @@ footer {
 /********************************************
                 Top Banner SCSS
 *********************************************/
-.top-banner{
+.top-banner {
     background-color: $header-bg;
-    .top-banner-details{
-        p{
+
+    .top-banner-details {
+        p {
             font-size: 1.37rem;
             line-height: 26px;
             font-weight: 600;
-            .company-name-blue{
+
+            .company-name-blue {
                 color: $color-deep-blue;
             }
-            .company-name-yellow{
+
+            .company-name-yellow {
                 color: $color-yellow;
             }
         }
-        .top-banner-heading{
+
+        .top-banner-heading {
             font-size: 4rem;
             font-weight: 700;
             line-height: 100px;
         }
-        .top-banner-details{
-           color: $color-gray;
-           font-weight: 400;
-           line-height: 28px;
+
+        .top-banner-details {
+            color: $color-gray;
+            font-weight: 400;
+            line-height: 28px;
         }
-        .top-banner-btn-group{
-            .started-btn{
+
+        .top-banner-btn-group {
+            .started-btn {
                 background-color: $color-deep-blue;
                 color: $color-white;
                 border-color: $color-deep-blue;
             }
-            .github-btn{
-                svg{
+
+            .github-btn {
+                svg {
                     height: 1.75rem;
                     width: 1.75rem;
                     margin-right: 10px;
                 }
+            }
+        }
+    }
+}
+
+/********************************************
+                Wallet Section SCSS
+*********************************************/
+.wallet-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 4rem;
+
+    .wallet-card {
+        flex-basis: 350px;
+        border-radius: 15px;
+        height: 462px;
+        background-color: $color-blue;
+        color: $color-white;
+        padding: 3rem;
+        margin-top: 25px;
+        position: relative;
+        overflow: hidden;
+
+        .wallet-title {
+            font-size: 2.37rem;
+            font-weight: 700;
+            line-height: 38px;
+            position: relative;
+            z-index: 999;
+        }
+
+        .wallet-details {
+            font-weight: 500;
+            font-size: 1rem;
+            line-height: 28px;
+            position: relative;
+            z-index: 999;
+        }
+
+        &::before {
+            content: "";
+            height: 113px;
+            width: 234px;
+            background-color: #0C20CB;
+            border-radius: 56px;
+            position: absolute;
+            right: -11%;
+            top: -4%;
+            z-index: 1;
+        }
+
+        &::after {
+            content: "";
+            height: 75px;
+            width: 120px;
+            background-color: $color-deep-blue;
+            border-radius: 50px;
+            position: absolute;
+            right: -7%;
+            bottom: 35%;
+            z-index: 1;
+        }
+
+        .wallet-social {
+            margin-top: 30px;
+
+            svg {
+                // fill: $color-white;
+                color: $color-white;
+                margin-right: 15px;
+                height: 2rem;
+            }
+        }
+
+        .wallet-button {
+            .wallet-btn {
+                background-color: $color-deep-blue;
+                border-color: $color-deep-blue;
+                color: $color-white;
+                font-size: 1.2rem;
+                font-weight: 600;
+                position: absolute;
+                bottom: 10%;
+                left: -10%;
+
+                .btn-text {
+                    margin-left: 5px;
+                }
+
+                svg {
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+    .wallet-safe{
+        background-color: $color-yellow;
+        color: $color-dark;
+        &::before {
+            background-color: $color-gold;
+        }
+
+        &::after {
+            background-color: $color-gold;
+            
+        }
+        .wallet-social{
+            svg{
+                color: $color-dark;
             }
         }
     }

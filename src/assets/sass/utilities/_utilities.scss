@@ -17,12 +17,16 @@ svg {
     cursor: pointer;
 }
 
+.section-padding{
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
 .custom-btn {
     border: 0;
     outline: 0;
     border: 1px solid $color-white;
     color: $color-dark;
-    padding: 1rem 3.5rem;
+    padding: 1rem 3rem;
     background-color: $color-white;
     border-radius: 50px;
     margin: 15px;
@@ -30,6 +34,12 @@ svg {
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
 }
 
+.content-title{
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 50px;
+    text-align: center;
+}
 
 /***********************************
          Custom Scrollbar SCSS
