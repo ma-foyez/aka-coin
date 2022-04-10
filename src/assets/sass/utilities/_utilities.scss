@@ -17,10 +17,11 @@ svg {
     cursor: pointer;
 }
 
-.section-padding{
+.section-padding {
     padding-top: 4rem;
     padding-bottom: 1rem;
 }
+
 .custom-btn {
     border: 0;
     outline: 0;
@@ -35,11 +36,46 @@ svg {
     cursor: pointer;
 }
 
-.content-title{
+.content-title {
     font-weight: 700;
     font-size: 3rem;
     line-height: 50px;
     text-align: center;
+}
+
+.modal-video-close-btn {
+    background-color: $color-yellow;
+    border: 3px solid $color-deep-blue;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 1rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 60%;
+        top: 60%;
+        left: 20%;
+        margin-top: -1px;
+        background: #fff;
+        border-radius: 5px;
+        margin-top: -6px;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 60%;
+        top: 60%;
+        left: 20%;
+        margin-top: -1px;
+        background: #fff;
+        border-radius: 5px;
+        margin-top: -6px;
+    }
+
 }
 
 /***********************************
