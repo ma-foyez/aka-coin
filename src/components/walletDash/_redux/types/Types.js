@@ -1,0 +1,1 @@
+export const GET_WALLET_LIST = "GET_WALLET_LIST"

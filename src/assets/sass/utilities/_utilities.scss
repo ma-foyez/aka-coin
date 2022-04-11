@@ -63,6 +63,7 @@ svg {
         border-radius: 5px;
         margin-top: -6px;
     }
+
     &::before {
         content: "";
         position: absolute;
@@ -76,6 +77,23 @@ svg {
         margin-top: -6px;
     }
 
+}
+
+
+/***********************************
+         Loading button SCSS
+************************************/
+.simple-loading {
+    display: flex;
+    align-items: center;
+    .text-custom-loading {
+        color: $color-deep-blue !important;
+    }
+
+    span {
+        margin-left: 15px;
+        font-weight: 600;
+    }
 }
 
 /***********************************

@@ -2,16 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { toast } from "react-toastify";
 import reportWebVitals from './reportWebVitals';
+import 'react-toastify/dist/ReactToastify.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./assets/sass/dashboard.scss"
 import "./assets/sass/styles.scss"
 import "./assets/sass/responsive.scss"
 
+import { Provider } from 'react-redux'
+import store from './_redux/Store'
+
+toast.configure();
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
