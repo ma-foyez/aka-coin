@@ -23,6 +23,7 @@ const HeaderNavbar = () => {
                                 <li> <NavLink to="/what-ako">What is AKO?</NavLink> </li>
                                 <li> <NavLink to="/learn">Learn</NavLink> </li>
                                 <li> <NavLink to="/community" >Community</NavLink> </li>
+                                <li> <NavLink to="/admin" className="admin-panel-btn" >Admin</NavLink> </li>
                             </ul>
                         </div>
                     </div>
