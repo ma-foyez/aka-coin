@@ -4,7 +4,7 @@ const Wallets = () => {
     return (
         <div className='container section-padding'>
             <h2 className="content-title"> Choose Your Wallets </h2>
-            <div className="wallet-container ">
+            <div className="wallet-container">
                 <div className="wallet-card">
                     <h4 className="wallet-title">AkaWallet</h4>
                     <p className="wallet-details">

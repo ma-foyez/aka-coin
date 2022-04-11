@@ -21,7 +21,7 @@ const Guideline = () => {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="col-sm-6">
                         <div className="guideline-inner">
                             <div className='guideline-img'>
@@ -33,7 +33,7 @@ const Guideline = () => {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="col-sm-6">
                         <div className="guideline-inner">
                             <div className='guideline-img'>
@@ -42,11 +42,11 @@ const Guideline = () => {
                             <div className="details">
                                 <h2 className="details-title">3. Connect your wallet</h2>
                                 <p className='wallet-details'>Access your wallet to AoaSwap by  <br />
-                                clicking ‘Connect to a wallet’</p>
+                                    clicking ‘Connect to a wallet’</p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="col-sm-6">
                         <div className="guideline-inner">
                             <div className='guideline-img'>
@@ -58,7 +58,42 @@ const Guideline = () => {
                             </div>
                         </div>
                     </div>
-                    
+
+                </div>
+
+
+                {/* card  */}
+                <div className="quick-start-card-container section-padding">
+
+                    <div className="quick-start-card">
+                        <h3 className="quick-start-card-title">Akacoin Community</h3>
+                        <p className="quick-start-card-details">
+                            There's something for everybody. Follow along, chat on Discord, or read up on what we’re doing.
+                        </p>
+                        <button className="quick-start-card-btn">Learn More</button>
+                        <div className="quick-start-card-footer"></div>
+                    </div>
+
+                    <div className="quick-start-card">
+                        <h3 className="quick-start-card-title">Akacoin Community</h3>
+                        <p className="quick-start-card-details">
+                            There's something for everybody. Follow along, chat on Discord, or read up on what we’re doing.
+                        </p>
+                        <button className="quick-start-card-btn">Learn More</button>
+                        <div className="quick-start-card-footer"></div>
+                    </div>
+
+                    <div className="quick-start-card">
+                        <h3 className="quick-start-card-title">Akacoin Community</h3>
+                        <p className="quick-start-card-details">
+                            There's something for everybody. Follow along, chat on Discord, or read up on what we’re doing.
+                        </p>
+                        <button className="quick-start-card-btn">Learn More</button>
+                        <div className="quick-start-card-footer"></div>
+                    </div>
+
+
+                   
                 </div>
             </div>
         </section>
