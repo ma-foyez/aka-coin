@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGuidelineList } from '../guidelineDash/_redux/Action/GuidelineAction';
 import SimpleLoading from '../utilities/SimpleLoading';
+import replaceImage from "./../../assets/images/Replace Image.png";
 
 const Guideline = () => {
 
@@ -62,19 +63,20 @@ const Guideline = () => {
                     </div>
 
                     <div className="quick-start-card">
-                        <h3 className="quick-start-card-title">Akacoin Community</h3>
+                        <h3 className="quick-start-card-title">Become a Validator</h3>
                         <p className="quick-start-card-details">
-                            There's something for everybody. Follow along, chat on Discord, or read up on what we’re doing.
+                            Help secure the network by running decentralized infrastructure. Learn about operating a validator node.
                         </p>
                         <button className="quick-start-card-btn">Learn More</button>
                         <div className="quick-start-card-footer"></div>
                     </div>
 
                     <div className="quick-start-card">
-                        <h3 className="quick-start-card-title">Akacoin Community</h3>
+                        <h3 className="quick-start-card-title">Dev. Resource</h3>
                         <p className="quick-start-card-details">
-                            There's something for everybody. Follow along, chat on Discord, or read up on what we’re doing.
+                            See the get started guide, videos, tutorials, SDKs, reference implementations, and more.
                         </p>
+                        <img src={replaceImage} alt="Replace Image" className='img-fluid' />
                         <button className="quick-start-card-btn">Learn More</button>
                         <div className="quick-start-card-footer"></div>
                     </div>
