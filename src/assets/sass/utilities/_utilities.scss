@@ -42,28 +42,26 @@ svg {
     line-height: 50px;
     text-align: center;
 }
-.simple-modal{
-    .modal_Close_btn {
-        border: 0;
-        outline: 0;
-        border: 2px solid $color-white;
-        color: $color-white;
-        padding: 2px 10px;
-        background-color: $color-deep-blue;
-        font-weight: 600;
-        box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 20%) !important;
-        cursor: pointer;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        right: -3%;
-        top: -15%;
-    }
-    
+
+.modal_Close_btn {
+    border: 0;
+    outline: 0;
+    border: 2px solid $color-white;
+    color: $color-white;
+    padding: 2px 10px;
+    background-color: $color-deep-blue;
+    font-weight: 600;
+    box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 20%) !important;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -3%;
+    top: -15%;
 }
 
 .modal-video-close-btn {
@@ -123,9 +121,10 @@ svg {
 /***********************************
         Delete Confirmation model SCSS
 ************************************/
-.delete-box{
+.delete-box {
     padding: 1rem;
-    .title{
+
+    .title {
         font-size: 1.5rem;
         font-weight: 600;
         line-height: 30px;
@@ -133,6 +132,27 @@ svg {
         margin-bottom: 20px;
     }
 }
+
+.imgPreview {
+    box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 20%) !important;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 1rem;
+    position: relative;
+
+    // max-height: 350px;
+    img {
+        max-height: 350px;
+        width: 100% !important;
+    }
+
+    .preview-close-btn {
+        right: -3%;
+        top: -5%;
+    }
+}
+
 /***********************************
         Simple Confirm SCSS
 ************************************/

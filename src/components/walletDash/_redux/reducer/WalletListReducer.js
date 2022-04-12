@@ -48,7 +48,6 @@ const WalletListReducer = (state = initialState, action) => {
                 walletInput: initialState.walletInput
             };
         case Types.DELETE_WALLET:
-            console.log('action.payload :>> ', action.payload);
             return {
                 ...state,
                 isDeleting: action.payload.isDeleting,

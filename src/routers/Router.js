@@ -1,5 +1,8 @@
 
 //import all pages here
+import AddGuide from '../components/guidelineDash/AddGuide';
+import EditGuideline from '../components/guidelineDash/EditGuideline';
+import GuidelineList from '../components/guidelineDash/GuidelineList';
 import AddWallet from '../components/walletDash/AddWallet';
 import EditWallet from '../components/walletDash/EditWallet';
 import WalletList from '../components/walletDash/WalletList';
@@ -45,8 +48,23 @@ const routes = [
         element: EditWallet,
     },
     {
+        path: "/add-guideline",
+        name: "Add Guideline Page",
+        element: AddGuide,
+    },
+    {
+        path: "/guideline-list",
+        name: "Add Guideline Page",
+        element: GuidelineList,
+    },
+    {
+        path: "/edit-guideline/:id",
+        name: "Add Guideline Page",
+        element: EditGuideline,
+    },
+    {
         path: "*",
-        name: "Home Page",
+        name: "404 Page",
         element: PageNotFound,
     },
 ];

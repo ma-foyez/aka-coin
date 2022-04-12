@@ -5,6 +5,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWalletList } from '../components/walletDash/_redux/Action/WalletListAction';
+import { getGuidelineList } from '../components/guidelineDash/_redux/Action/GuidelineAction';
 
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -13,10 +14,12 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const AdminPage = () => {
 
     const dispatch = useDispatch();
-    const { walletList, isLoading } = useSelector((state) => state.WalletReducer);
+    const { walletList } = useSelector((state) => state.WalletReducer);
+    const { guidelineList } = useSelector((state) => state.GuidelineReducer);
 
     useEffect(() => {
         dispatch(getWalletList())
+        dispatch(getGuidelineList())
     }, [dispatch])
 
     const data = {
@@ -24,7 +27,7 @@ const AdminPage = () => {
         datasets: [
             {
                 label: '# of Votes',
-                data: [walletList.length, 3],
+                data: [walletList.length > 0 ? walletList.length : 5, guidelineList.length > 0 ? guidelineList.length : 5],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
