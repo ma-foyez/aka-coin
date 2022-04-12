@@ -5,6 +5,62 @@ import * as Types from "../types/Types";
 let baseURL = process.env.REACT_APP_API_URL;
 
 
+/**
+ * 
+ * @param {string} name ex: Input field data name
+ * @param {string} value ex: Input field value
+ * @returns formData
+ */
+export const handleChangeWalletInput = (name, value) => (dispatch) => {
+    const formData = {
+        name: name,
+        value: value
+    }
+    dispatch({ type: Types.HANDLE_CHANGE_WALLET_INPUT, payload: formData })
+}
+
+/**
+ * Add new wallet 
+ * @param {object} walletInput ex: Wallet Input Fields
+ * @returns handlePostWalletData
+ */
+export const handlePostWalletData = (walletInput, navigate) => (dispatch) => {
+    const response = {
+        isLoading: true,
+        status: false,
+    }
+    if (walletInput.title === "") {
+        showToast("error", "Wallet title can't be blank!")
+        return false;
+    }
+    if (walletInput.link === "") {
+        showToast("error", "Wallet link can't be blank!");
+        return false;
+    }
+    if (walletInput.description === "") {
+        showToast("error", "Description title can't be blank!");
+        return false;
+    }
+
+    dispatch({ type: Types.HANDLE_SUBMIT_WALLET_DATA, payload: response });
+
+    Axios.post(`${baseURL}/wallet/create`, walletInput)
+        .then((res) => {
+            response.isLoading = false;
+            showToast("success", res.data.message);
+            dispatch({ type: Types.HANDLE_SUBMIT_WALLET_DATA, payload: response });
+            navigate("/wallet-list");
+
+        }).catch((err) => {
+            response.isLoading = false;
+            let responseLog = err.response;
+            showToast("error", responseLog.data.message);
+            dispatch({ type: Types.HANDLE_SUBMIT_WALLET_DATA, payload: response });
+        })
+
+}
+
+
 export const getWalletList = () => (dispatch) => {
     const responseData = {
         isLoading: true,
@@ -33,59 +89,10 @@ export const getWalletList = () => (dispatch) => {
 }
 
 /**
- * 
- * @param {string} name ex: Input field data name
- * @param {string} value ex: Input field value
- * @returns formData
+ * Get Single Wallet Data
+ * @param {string} id Ex: Wallet ID
+ * @returns responseData
  */
-export const handleChangeWalletInput = (name, value) => (dispatch) => {
-    const formData = {
-        name: name,
-        value: value
-    }
-    dispatch({ type: Types.HANDLE_CHANGE_WALLET_INPUT, payload: formData })
-}
-
-/**
- * Add new wallet 
- * @param {object} walletInput ex: Wallet Input Fields
- * @returns handlePostWalletData
- */
-export const handlePostWalletData = (walletInput) => (dispatch) => {
-    const response = {
-        isLoading: true,
-        status: false,
-    }
-    if (walletInput.title === "") {
-        showToast("error", "Wallet title can't be blank!")
-        return false;
-    }
-    if (walletInput.link === "") {
-        showToast("error", "Wallet link can't be blank!");
-        return false;
-    }
-    if (walletInput.description === "") {
-        showToast("error", "Description title can't be blank!");
-        return false;
-    }
-
-    dispatch({ type: Types.HANDLE_SUBMIT_WALLET_DATA, payload: response });
-
-    Axios.post(`${baseURL}/wallet/create`, walletInput)
-        .then((res) => {
-            response.isLoading = false;
-            showToast("success", res.data.message);
-            dispatch({ type: Types.HANDLE_SUBMIT_WALLET_DATA, payload: response });
-
-        }).catch((err) => {
-            response.isLoading = false;
-            let responseLog = err.response;
-            showToast("error", responseLog.data.message);
-            dispatch({ type: Types.HANDLE_SUBMIT_WALLET_DATA, payload: response });
-        })
-
-}
-
 export const getSingleWallet = (id) => (dispatch) => {
     const responseData = {
         isLoading: true,
@@ -108,5 +115,78 @@ export const getSingleWallet = (id) => (dispatch) => {
             responseData.status = false;
             showToast("warning", "Something went wrong!")
             dispatch({ type: Types.GET_SINGLE_WALLET, payload: responseData });
+        })
+}
+
+/**
+ * Add new wallet 
+ * @param {object} walletInput ex: Wallet Input Fields
+ * @returns handlePostWalletData
+ */
+export const updateSingleWallet = (walletInput, id, navigate) => (dispatch) => {
+    const response = {
+        isLoading: true,
+        status: false,
+    }
+    if (walletInput.title === "") {
+        showToast("error", "Wallet title can't be blank!")
+        return false;
+    }
+    if (walletInput.link === "") {
+        showToast("error", "Wallet link can't be blank!");
+        return false;
+    }
+    if (walletInput.description === "") {
+        showToast("error", "Description title can't be blank!");
+        return false;
+    }
+
+    dispatch({ type: Types.UPDATE_SINGLE_WALLET, payload: response });
+
+    Axios.patch(`${baseURL}/wallet/update/${id}`, walletInput)
+        .then((res) => {
+            response.isLoading = false;
+            showToast("success", res.data.message);
+            dispatch({ type: Types.UPDATE_SINGLE_WALLET, payload: response });
+            navigate("/wallet-list");
+
+        }).catch((err) => {
+            response.isLoading = false;
+            let responseLog = err.response;
+            showToast("error", responseLog.data.message);
+            dispatch({ type: Types.UPDATE_SINGLE_WALLET, payload: response });
+        })
+}
+
+
+/**
+ * Delete Single Wallet Data
+ * @param {string} id Ex: Wallet ID
+ * @returns responseData
+ */
+export const deleteWallet = (id, handleClose) => (dispatch) => {
+    const responseData = {
+        isDeleting: true,
+        status: false,
+        message: ""
+    }
+    dispatch({ type: Types.DELETE_WALLET, payload: responseData });
+    Axios.delete(`${baseURL}/wallet/delete/${id}`)
+        .then((res) => {
+            if (res.status === 201) {
+                responseData.message = res.data.message;
+                responseData.isDeleting = false;
+                responseData.status = true;
+                showToast("success", res.data.message);
+                dispatch(getWalletList())
+                handleClose();
+            }
+
+            dispatch({ type: Types.DELETE_WALLET, payload: responseData });
+        }).catch((err) => {
+            responseData.isDeleting = false;
+            responseData.status = false;
+            showToast("warning", "Something went wrong!")
+            dispatch({ type: Types.DELETE_WALLET, payload: responseData });
         })
 }

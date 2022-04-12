@@ -19,7 +19,6 @@ const DashboardSidebar = () => {
                             <ul className=''>
                                 <li> <NavLink to="/wallet-list">List Wallets</NavLink> </li>
                                 <li> <NavLink to="/add-wallet">Add Wallets</NavLink> </li>
-                                <li> <NavLink to="/edit-wallet">Edit Wallets</NavLink> </li>
                             </ul>
                         </Accordion.Body>
                     </Accordion.Item>
@@ -29,7 +28,6 @@ const DashboardSidebar = () => {
                             <ul className=''>
                                 <li> <NavLink to="/guideline-list"> Guidelines List</NavLink> </li>
                                 <li> <NavLink to="/add-guideline">Add Guidelines</NavLink> </li>
-                                <li> <NavLink to="/edit-guideline">Edit Guidelines</NavLink> </li>
                             </ul>
                         </Accordion.Body>
                     </Accordion.Item>

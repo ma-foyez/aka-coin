@@ -159,30 +159,33 @@
         box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 20%) !important;
         cursor: pointer;
     }
-    svg{
+
+    svg {
         width: 20px;
         margin-right: 10px;
     }
 }
-.dashboard-form-body{
-    .submit-btn{
-        border: 0;
-        outline: 0;
-        background-color: $color-deep-blue;
-        color: $color-white;
-        padding: 5px 10px;
-        float: right;
-        border-radius: 5px;
-    }
+
+.submit-btn {
+    border: 0;
+    outline: 0;
+    background-color: $color-deep-blue;
+    color: $color-white;
+    padding: 5px 10px;
+    float: right;
+    border-radius: 5px;
 }
+
 .dashboard-btn-group {
 
     .dashboard-btn {
         margin-left: 10px;
+
         svg {
             height: 15px;
         }
-        span{
+
+        span {
             margin-left: 10px;
         }
     }

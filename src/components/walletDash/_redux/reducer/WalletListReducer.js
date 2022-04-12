@@ -9,7 +9,8 @@ const initialState = {
         link: "",
         description: ""
     },
-    isSubmitting: false
+    isSubmitting: false,
+    isDeleting: false,
 };
 
 const WalletListReducer = (state = initialState, action) => {
@@ -39,6 +40,18 @@ const WalletListReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: action.payload.isLoading,
                 walletInput: action.payload.walletData
+            };
+        case Types.UPDATE_SINGLE_WALLET:
+            return {
+                ...state,
+                isSubmitting: action.payload.isLoading,
+                walletInput: initialState.walletInput
+            };
+        case Types.DELETE_WALLET:
+            console.log('action.payload :>> ', action.payload);
+            return {
+                ...state,
+                isDeleting: action.payload.isDeleting,
             };
         default:
             return {

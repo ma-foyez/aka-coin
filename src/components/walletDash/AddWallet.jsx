@@ -1,11 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DashboardLayout from '../../layouts/DashboardLayout';
 import { handleChangeWalletInput, handlePostWalletData } from './_redux/Action/WalletListAction';
 import { Spinner } from 'react-bootstrap';
 
 const AddWallet = () => {
+
+    let navigate = useNavigate();
 
     const dispatch = useDispatch();
     const { walletInput, isSubmitting } = useSelector((state) => state.WalletReducer);
@@ -15,7 +17,7 @@ const AddWallet = () => {
     };
 
     const handleSubmit = (e) => {
-        dispatch(handlePostWalletData(walletInput))
+        dispatch(handlePostWalletData(walletInput, navigate))
         e.preventDefault()
     };
 

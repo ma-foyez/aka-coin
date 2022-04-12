@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import DashboardLayout from '../../layouts/DashboardLayout';
-import { getSingleWallet, handleChangeWalletInput, handlePostWalletData } from './_redux/Action/WalletListAction';
+import { getSingleWallet, handleChangeWalletInput, handlePostWalletData, updateSingleWallet } from './_redux/Action/WalletListAction';
 import { Spinner } from 'react-bootstrap';
 import SimpleLoading from '../utilities/SimpleLoading';
 
 const EditWallet = () => {
+
+    let navigate = useNavigate();
 
     const { id } = useParams()
     const dispatch = useDispatch();
@@ -17,7 +19,7 @@ const EditWallet = () => {
     };
 
     const handleSubmit = (e) => {
-        dispatch(handlePostWalletData(walletInput))
+        dispatch(updateSingleWallet(walletInput, id, navigate))
         e.preventDefault()
     };
 
