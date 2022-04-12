@@ -1,8 +1,24 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import DashboardLayout from '../../layouts/DashboardLayout';
+import { handleChangeWalletInput, handlePostWalletData } from './_redux/Action/WalletListAction';
+import { Spinner } from 'react-bootstrap';
 
 const AddWallet = () => {
+
+    const dispatch = useDispatch();
+    const { walletInput, isSubmitting } = useSelector((state) => state.WalletReducer);
+
+    const changeWalletInput = (name, value) => {
+        dispatch(handleChangeWalletInput(name, value));
+    };
+
+    const handleSubmit = (e) => {
+        dispatch(handlePostWalletData(walletInput))
+        e.preventDefault()
+    };
+
     return (
         <DashboardLayout title="Wallet">
             <div className="card p-4">
@@ -15,20 +31,70 @@ const AddWallet = () => {
                         Back
                     </Link>
                 </div>
-                <div className='dashboard-form-body'>
+                <form
+                    className='dashboard-form-body'
+                    autoComplete="off"
+                    autoSave="off"
+                    onSubmit={(e) => handleSubmit(e)}
+                >
                     <div className="mb-3">
-                        <label for="walletTitle" className="form-label">Wallet Title</label>
-                        <input type="text" id='walletTitle' className="form-control" placeholder='Wallet Title' />
+                        <label htmlFor="walletTitle" className="form-label">Wallet Title</label>
+                        <input
+                            type="text" id='walletTitle'
+                            className="form-control"
+                            placeholder='Wallet Title'
+                            value={walletInput.title}
+                            onChange={(e) =>
+                                changeWalletInput("title", e.target.value)
+                            }
+                        />
                     </div>
                     <div className="mb-3">
-                        <label for="walletTitle" className="form-label">Wallet Link</label>
-                        <input type="text" id='walletTitle' className="form-control" placeholder='Wallet Button Link' />
+                        <label htmlFor="walletTitle" className="form-label">Wallet Link</label>
+                        <input
+                            type="text"
+                            id='walletTitle'
+                            className="form-control"
+                            placeholder='Wallet Button Link'
+                            value={walletInput.link}
+                            onChange={(e) =>
+                                changeWalletInput("link", e.target.value)
+                            }
+                        />
                     </div>
                     <div className="mb-3">
-                        <label for="WalletDescription" className="form-label">Wallet Description</label>
-                        <textarea placeholder='Wallet Description' className="form-control" id="WalletDescription" rows="3"></textarea>
+                        <label htmlFor="WalletDescription" className="form-label">Wallet Description</label>
+                        <textarea
+                            placeholder='Wallet Description'
+                            className="form-control"
+                            id="WalletDescription"
+                            rows="3"
+                            value={walletInput.description}
+                            onChange={(e) =>
+                                changeWalletInput("description", e.target.value)
+                            }
+                        >
+
+                        </textarea>
                     </div>
-                </div>
+                    {
+                        isSubmitting && (
+                            <button type='submit' className='submit-btn' disabled={true}>
+                                <Spinner
+                                    animation="border"
+                                    variant="custom-loading"
+                                    size="sm"
+                                />
+                                <span className="ms-2">Submitting...</span>
+                            </button>
+                        )
+                    }
+                    {
+                        !isSubmitting && (
+                            <button type='submit' className='submit-btn'>Submit</button>
+                        )
+                    }
+                </form>
             </div>
         </DashboardLayout>
     );

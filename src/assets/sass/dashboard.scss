@@ -164,7 +164,17 @@
         margin-right: 10px;
     }
 }
-
+.dashboard-form-body{
+    .submit-btn{
+        border: 0;
+        outline: 0;
+        background-color: $color-deep-blue;
+        color: $color-white;
+        padding: 5px 10px;
+        float: right;
+        border-radius: 5px;
+    }
+}
 .dashboard-btn-group {
 
     .dashboard-btn {

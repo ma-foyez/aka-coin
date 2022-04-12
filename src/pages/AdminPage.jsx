@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DashboardLayout from '../layouts/DashboardLayout';
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import { useDispatch, useSelector } from 'react-redux';
+import { getWalletList } from '../components/walletDash/_redux/Action/WalletListAction';
 
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -10,12 +12,19 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const AdminPage = () => {
 
+    const dispatch = useDispatch();
+    const { walletList, isLoading } = useSelector((state) => state.WalletReducer);
+
+    useEffect(() => {
+        dispatch(getWalletList())
+    }, [dispatch])
+
     const data = {
         labels: ['Wallets', 'Guidelines'],
         datasets: [
             {
                 label: '# of Votes',
-                data: [12, 3],
+                data: [walletList.length, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

@@ -1,6 +1,7 @@
 
 //import all pages here
 import AddWallet from '../components/walletDash/AddWallet';
+import EditWallet from '../components/walletDash/EditWallet';
 import WalletList from '../components/walletDash/WalletList';
 import AdminPage from '../pages/AdminPage';
 import Login from '../pages/Login';
@@ -37,6 +38,11 @@ const routes = [
         path: "/add-wallet",
         name: "Add Wallet Page",
         element: AddWallet,
+    },
+    {
+        path: "/edit-wallet/:id",
+        name: "Edit Wallet Page",
+        element: EditWallet,
     },
     {
         path: "*",
