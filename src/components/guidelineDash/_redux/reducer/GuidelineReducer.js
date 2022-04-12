@@ -1,17 +1,17 @@
 import * as Types from "../types/Types";
 
 const initialState = {
-    isLoading: false,
-    guidelineList: [],
-    message: "",
-    guidelineInput: {
-        title: "",
-        description: "",
+    isLoading       : false,
+    guidelineList   : [],
+    message         : "",
+    guidelineInput  : {
+        title       : "",
+        description : "",
         guidelineImg: "",
         imagePreview: null
     },
-    isSubmitting: false,
-    isDeleting: false,
+    isSubmitting    : false,
+    isDeleting      : false,
 };
 
 const GuidelineReducer = (state = initialState, action) => {
@@ -26,26 +26,26 @@ const GuidelineReducer = (state = initialState, action) => {
         case Types.HANDLE_SUBMIT_GUIDELINE_DATA:
             return {
                 ...state,
-                isSubmitting: action.payload.isLoading,
+                isSubmitting  : action.payload.isLoading,
                 guidelineInput: initialState.guidelineInput
             };
         case Types.GET_GUIDELINE_LIST:
             return {
                 ...state,
-                isLoading: action.payload.isLoading,
+                isLoading    : action.payload.isLoading,
                 guidelineList: action.payload.data,
-                message: action.payload.message
+                message      : action.payload.message
             };
         case Types.GET_SINGLE_GUIDELINE:
             return {
                 ...state,
-                isLoading: action.payload.isLoading,
+                isLoading     : action.payload.isLoading,
                 guidelineInput: action.payload.guidelineData
             };
         case Types.UPDATE_SINGLE_GUIDELINE:
             return {
                 ...state,
-                isSubmitting: action.payload.isLoading,
+                isSubmitting  : action.payload.isLoading,
                 guidelineInput: initialState.guidelineInput
             };
         case Types.DELETE_GUIDELINE:

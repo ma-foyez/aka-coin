@@ -14,7 +14,7 @@ let baseURL = process.env.REACT_APP_API_URL;
  */
 export const handleChangeGuidelineInput = (name, value, e = null) => (dispatch) => {
     let data = {
-        name: name,
+        name : name,
         value: value,
     }
     dispatch({ type: Types.HANDLE_CHANGE_GUIDELINE_INPUT, payload: data });
@@ -36,7 +36,7 @@ export const handleChangeGuidelineInput = (name, value, e = null) => (dispatch) 
 export const deletePreviewImage = (name) => (dispatch) => {
 
     let data = {
-        name: name,
+        name : name,
         value: null,
     }
     dispatch({ type: Types.HANDLE_CHANGE_GUIDELINE_INPUT, payload: data });
@@ -55,8 +55,8 @@ export const deletePreviewImage = (name) => (dispatch) => {
 */
 export const handleStoreGuideline = (guidelineInput, navigate) => (dispatch) => {
     const response = {
-        isLoading: true,
-        status: false,
+        isLoading  : true,
+        status     : false,
     }
     if (guidelineInput.title === "") {
         showToast("error", "Guideline title can't be blank!")
@@ -95,20 +95,20 @@ export const handleStoreGuideline = (guidelineInput, navigate) => (dispatch) => 
  */
 export const getGuidelineList = () => (dispatch) => {
     const responseData = {
-        isLoading: true,
-        status: false,
-        message: "",
-        data: [],
+        isLoading      : true,
+        status         : false,
+        message        : "",
+        data           : [],
     }
     dispatch({ type: Types.GET_GUIDELINE_LIST, payload: responseData });
 
     Axios.get(`${baseURL}/guideline/list`)
         .then((res) => {
             if (res.status === 201) {
-                responseData.message = res.data.message;
-                responseData.data = res.data.data;
+                responseData.message   = res.data.message;
+                responseData.data      = res.data.data;
                 responseData.isLoading = false;
-                responseData.status = true;
+                responseData.status    = true;
             }
 
             dispatch({ type: Types.GET_GUIDELINE_LIST, payload: responseData });
@@ -128,24 +128,24 @@ export const getGuidelineList = () => (dispatch) => {
  */
 export const getSingleGuideline = (id) => (dispatch) => {
     const responseData = {
-        isLoading: true,
-        status: false,
-        guidelineData: {}
+        isLoading      : true,
+        status         : false,
+        guidelineData  : {}
     }
     dispatch({ type: Types.GET_SINGLE_GUIDELINE, payload: responseData });
     Axios.get(`${baseURL}/guideline/${id}`)
         .then((res) => {
             if (res.status === 201) {
-                responseData.message = res.data.message;
+                responseData.message       = res.data.message;
                 responseData.guidelineData = res.data.data;
-                responseData.isLoading = false;
-                responseData.status = true;
+                responseData.isLoading     = false;
+                responseData.status        = true;
             }
 
             dispatch({ type: Types.GET_SINGLE_GUIDELINE, payload: responseData });
         }).catch((err) => {
             responseData.isLoading = false;
-            responseData.status = false;
+            responseData.status    = false;
             showToast("warning", "Something went wrong!")
             dispatch({ type: Types.GET_SINGLE_GUIDELINE, payload: responseData });
         })
@@ -161,8 +161,8 @@ export const getSingleGuideline = (id) => (dispatch) => {
 */
 export const handleUpdateGuideline = (guidelineInput, id, navigate) => (dispatch) => {
     const response = {
-        isLoading: true,
-        status: false,
+        isLoading  : true,
+        status     : false,
     }
     if (guidelineInput.title === "") {
         showToast("error", "Guideline title can't be blank!")
@@ -204,17 +204,17 @@ export const handleUpdateGuideline = (guidelineInput, id, navigate) => (dispatch
  */
 export const deleteGuideline = (id, handleClose) => (dispatch) => {
     const responseData = {
-        isDeleting: true,
-        status: false,
-        message: ""
+        isDeleting     : true,
+        status         : false,
+        message        : ""
     }
     dispatch({ type: Types.DELETE_GUIDELINE, payload: responseData });
     Axios.delete(`${baseURL}/guideline/delete/${id}`)
         .then((res) => {
             if (res.status === 201) {
-                responseData.message = res.data.message;
+                responseData.message    = res.data.message;
                 responseData.isDeleting = false;
-                responseData.status = true;
+                responseData.status     = true;
                 showToast("success", res.data.message);
                 dispatch(getGuidelineList())
                 handleClose();
@@ -223,7 +223,7 @@ export const deleteGuideline = (id, handleClose) => (dispatch) => {
             dispatch({ type: Types.DELETE_GUIDELINE, payload: responseData });
         }).catch((err) => {
             responseData.isDeleting = false;
-            responseData.status = false;
+            responseData.status     = false;
             showToast("warning", "Something went wrong!")
             dispatch({ type: Types.DELETE_GUIDELINE, payload: responseData });
         })

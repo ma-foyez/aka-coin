@@ -13,8 +13,8 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const AdminPage = () => {
 
-    const dispatch = useDispatch();
-    const { walletList } = useSelector((state) => state.WalletReducer);
+    const dispatch          = useDispatch();
+    const { walletList }    = useSelector((state) => state.WalletReducer);
     const { guidelineList } = useSelector((state) => state.GuidelineReducer);
 
     useEffect(() => {

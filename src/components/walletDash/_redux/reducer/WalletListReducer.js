@@ -1,16 +1,18 @@
 import * as Types from "../types/Types";
 
 const initialState = {
-    isLoading: false,
-    walletList: [],
-    message: "",
-    walletInput: {
-        title: "",
-        link: "",
-        description: ""
+    isLoading      : false,
+    walletList     : [],
+    message        : "",
+    walletInput    : {
+        title      : "",
+        link       : "",
+        description: "",
+        icon       : "",
+        iconPreview: null
     },
-    isSubmitting: false,
-    isDeleting: false,
+    isSubmitting   : false,
+    isDeleting     : false,
 };
 
 const WalletListReducer = (state = initialState, action) => {
@@ -18,9 +20,9 @@ const WalletListReducer = (state = initialState, action) => {
         case Types.GET_WALLET_LIST:
             return {
                 ...state,
-                isLoading: action.payload.isLoading,
+                isLoading : action.payload.isLoading,
                 walletList: action.payload.data,
-                message: action.payload.message
+                message   : action.payload.message
             };
         case Types.HANDLE_CHANGE_WALLET_INPUT:
             const walletInput = { ...state.walletInput };
@@ -33,19 +35,19 @@ const WalletListReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isSubmitting: action.payload.isLoading,
-                walletInput: initialState.walletInput
+                walletInput : initialState.walletInput
             };
         case Types.GET_SINGLE_WALLET:
             return {
                 ...state,
-                isLoading: action.payload.isLoading,
+                isLoading  : action.payload.isLoading,
                 walletInput: action.payload.walletData
             };
         case Types.UPDATE_SINGLE_WALLET:
             return {
                 ...state,
                 isSubmitting: action.payload.isLoading,
-                walletInput: initialState.walletInput
+                walletInput : initialState.walletInput
             };
         case Types.DELETE_WALLET:
             return {
