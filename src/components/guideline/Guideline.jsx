@@ -1,8 +1,4 @@
 import React, { useEffect } from 'react';
-import wallet from "./../../assets/images/Wallet.png"
-import Hand from "./../../assets/images/Hand Hold Bitcoin.png"
-import laptop from "./../../assets/images/Laptop.png"
-import Machine from "./../../assets/images/Machine.png"
 import { useDispatch, useSelector } from 'react-redux';
 import { getGuidelineList } from '../guidelineDash/_redux/Action/GuidelineAction';
 import SimpleLoading from '../utilities/SimpleLoading';

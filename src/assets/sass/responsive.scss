@@ -50,16 +50,287 @@
 
         .top-banner-details {
             margin-top: 30px;
-            .top-banner-heading{
+
+            .top-banner-heading {
                 line-height: 60px;
             }
         }
-        .top-banner-img{
+
+        .top-banner-img {
             text-align: center;
-            img{
+
+            img {
                 max-height: 300px;
             }
         }
     }
 
+}
+
+@media only screen and (max-width: 414px) {
+
+    /********************************************
+                Top Banner SCSS
+*********************************************/
+    .top-banner {
+
+        // padding: 1rem;
+        .top-banner-details {
+            p {
+                font-size: 1rem;
+            }
+
+            .top-banner-heading {
+                font-size: 2rem;
+                font-weight: 700;
+                line-height: 50px;
+            }
+
+            .top-banner-details {
+                line-height: 20px;
+            }
+
+            .top-banner-btn-group {
+
+                .github-btn {
+                    svg {
+                        height: 1.2rem;
+                        width: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    /*******************************************************************
+                Community of aka coin Section SCSS
+********************************************************************/
+    .community-inner-details {
+        margin-top: 0;
+
+        .community-details-title {
+            font-weight: 600;
+            font-size: 1.6rem;
+            line-height: 40px;
+        }
+
+        .community-inner-banner {
+            background-color: $color-yellow;
+            border-radius: 15px;
+            width: 100%;
+            max-height: 400px;
+            margin-top: 20px;
+
+            img {
+                width: 100%;
+                height: 300px;
+            }
+        }
+
+        .community-video {
+            max-height: 350px;
+
+            img {
+                width: 230px;
+            }
+
+            .play-btn {
+                width: 170px;
+                padding: 0.5rem 1rem;
+                left: -4%;
+                font-size: 0.8rem;
+
+                svg {
+                    height: 20px;
+                }
+            }
+
+            .play-btn-round {
+                height: 50px;
+                width: 50px;
+                bottom: 40%;
+                right: 10%;
+
+                svg {
+                    height: 25px;
+
+                }
+            }
+        }
+    }
+
+    /********************************************
+                Wallet Section SCSS
+*********************************************/
+    .wallet-container {
+        flex-direction: column;
+        padding-top: 2rem;
+
+        .wallet-card {
+            height: 502px;
+            background-color: $color-blue;
+            color: $color-white;
+            padding: 2rem;
+
+            .wallet-title {
+                font-size: 2rem;
+                font-weight: 600;
+                line-height: 30px;
+
+                img {
+                    height: 35px;
+                }
+            }
+
+            &::before {
+                content: "";
+                height: 80px;
+                width: 200px;
+            }
+
+            &::after {
+                content: "";
+                height: 60px;
+                width: 90px;
+            }
+
+            .wallet-button {
+                .wallet-btn {
+                    font-size: 1rem;
+                    padding: 0.3rem 2rem;
+
+                    .btn-text {
+                        margin-left: 5px;
+                    }
+
+                    svg {
+                        margin-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    /********************************************
+                Guideline Section SCSS
+*********************************************/
+    .guideline-inner {
+        padding-top: 2rem;
+
+        .guideline-img {
+            img {
+                width: 100px;
+            }
+        }
+
+        .details {
+            margin-left: 30px;
+
+            .details-title {
+                font-size: 1.3rem;
+                font-weight: 600;
+            }
+
+            .wallet-details {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+
+    .quick-start-card-container {
+        flex-direction: column;
+
+        .quick-start-card {
+            padding: 3rem;
+            min-height: 350px;
+            border-radius: 15px;
+            position: relative;
+            z-index: 999;
+            overflow: hidden;
+
+            .quick-start-card-title {
+                font-size: 2.5rem;
+                line-height: 50px;
+            }
+
+            .quick-start-card-btn {
+                padding: 10px 20px 10px 56px;
+                bottom: 10%;
+            }
+
+        }
+    }
+
+    /********************************************
+                Footer SCSS
+*********************************************/
+    footer {
+        .footer-top {
+            .transaction {
+                .transaction-amount {
+                    font-weight: 700;
+                    font-size: 1.3rem;
+                }
+            }
+        }
+
+        .footer-nav {
+            ul {
+                li {
+                    margin: 6px 0px;
+                }
+            }
+
+            .footer-social {
+                ul {
+                    li {
+                        svg {
+                            height: 1.4rem;
+                            width: 1.4rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-inner {
+            margin-left: 1rem;
+
+            .title {
+                font-weight: 700;
+                line-height: 20px;
+            }
+
+            a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+
+        .footer-copyright {
+            padding: 0.5rem;
+            p {
+                line-height: 25px;
+            }
+        }
+    }
+
+    /********************************************
+    *               Utilities CSS
+    ********************************************/
+    .custom-btn {
+        padding: 0.4rem 1rem;
+    }
+
+    .content-title {
+        font-weight: 600;
+        font-size: 1.7rem;
+        line-height: 30px;
+    }
+
+    .section-padding {
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+    }
 }

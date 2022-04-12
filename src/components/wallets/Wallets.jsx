@@ -29,7 +29,7 @@ const Wallets = () => {
                     <div className="alert alert-warning text-center">Wallet Not Found</div>
                 )
             }
-            <div className="wallet-container">
+        <div className="wallet-container">
                 {
                     walletList && walletList.length > 0 && walletList.map((wallet, index) => (
                         <div className={`wallet-card card-${index + 1}`}>
