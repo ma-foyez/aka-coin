@@ -1,63 +1,54 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import wallet from "./../../assets/images/Wallet.png"
 import Hand from "./../../assets/images/Hand Hold Bitcoin.png"
 import laptop from "./../../assets/images/Laptop.png"
 import Machine from "./../../assets/images/Machine.png"
+import { useDispatch, useSelector } from 'react-redux';
+import { getGuidelineList } from '../guidelineDash/_redux/Action/GuidelineAction';
+import SimpleLoading from '../utilities/SimpleLoading';
 
 const Guideline = () => {
+
+    const dispatch = useDispatch();
+    const { guidelineList, isLoading } = useSelector((state) => state.GuidelineReducer);
+
+    useEffect(() => {
+        dispatch(getGuidelineList())
+    }, [dispatch])
+
+
+
     return (
         <section id='guideline' className='guideline'>
             <div className="container section-padding mt-3">
                 <h2 className="content-title"> Quick Start Guide </h2>
+
+                {isLoading === true && (
+                    <div className="d-flex justify-content-center mt-4">
+                        <SimpleLoading title="Loading Guideline list" />
+                    </div>
+                )}
+
+
+                {!isLoading && guidelineList.length === 0 && (
+                    <div className="alert alert-warning text-center">Guideline Data Not Found</div>
+                )}
                 <div className="row mt-2">
-                    <div className="col-sm-6">
-                        <div className="guideline-inner">
-                            <div className='guideline-img'>
-                                <img src={wallet} alt="Create Wallet" />
+                    {
+                        guidelineList && guidelineList.length > 0 && guidelineList.map((guideline, index) => (
+                            <div className="col-sm-6">
+                                <div className="guideline-inner">
+                                    <div className='guideline-img'>
+                                        <img src={guideline.imagePreview} alt={guideline.title} />
+                                    </div>
+                                    <div className="details">
+                                        <h2 className="details-title">{index + 1}. {guideline.title}</h2>
+                                        <p className='wallet-details'>{guideline.description}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="details">
-                                <h2 className="details-title">1. Create a wallet</h2>
-                                <p className='wallet-details'>Create a Wallet using either a desktop <br /> computer or an mobile device</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className="col-sm-6">
-                        <div className="guideline-inner">
-                            <div className='guideline-img'>
-                                <img src={Hand} alt="Buy ETH" />
-                            </div>
-                            <div className="details">
-                                <h2 className="details-title">2. Buy ETH</h2>
-                                <p className='wallet-details'>You can buy Ethereum (ETH) directly <br /> on MetaMask or transfer it</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col-sm-6">
-                        <div className="guideline-inner">
-                            <div className='guideline-img'>
-                                <img src={laptop} alt="Connect your wallet" />
-                            </div>
-                            <div className="details">
-                                <h2 className="details-title">3. Connect your wallet</h2>
-                                <p className='wallet-details'>Access your wallet to AoaSwap by  <br />
-                                    clicking ‘Connect to a wallet’</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col-sm-6">
-                        <div className="guideline-inner">
-                            <div className='guideline-img'>
-                                <img src={Machine} alt="Swap ETH to AKO" />
-                            </div>
-                            <div className="details">
-                                <h2 className="details-title">4. Swap ETH to AKO</h2>
-                                <p className='wallet-details'>You can start swapping as you have <br /> ETH available! Press ‘Select a token’</p>
-                            </div>
-                        </div>
-                    </div>
+                        ))}
 
                 </div>
 
@@ -93,7 +84,7 @@ const Guideline = () => {
                     </div>
 
 
-                   
+
                 </div>
             </div>
         </section>

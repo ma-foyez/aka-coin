@@ -7,7 +7,7 @@ const DashboardSidebar = () => {
     return (
         <div className='dashboard-sidebar-menu'>
             <div className="brand-logo dashboard-sidebar-logo">
-                <Link to="/">
+                <Link to="/admin">
                     <img src={logo} alt="Space brand logo" />
                 </Link>
             </div>
